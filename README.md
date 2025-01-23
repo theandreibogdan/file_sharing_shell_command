@@ -1,4 +1,4 @@
-# File Sharing with Python Sever (as a shell command)
+# File Sharing with Python Server (as a shell command)
 Requirements: python3 with http.server
 
 ## For Linux & MacOS
