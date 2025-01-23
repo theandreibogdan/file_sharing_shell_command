@@ -8,3 +8,5 @@ This is a file sharing shell command that uses python http.server.
 5. Download the files
 6. When you CTRL + C, it will also kill the process and free the port
 7. Enjoy
+
+Requirement: python3 with http.server
