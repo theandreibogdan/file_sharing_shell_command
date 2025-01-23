@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Default port
+PORT=8000
+
+# Check if the port is in use
+while lsof -i :$PORT > /dev/null 2>&1; do
+    echo "Port $PORT is in use. Trying the next port..."
+    ((PORT++))
+done
+
+# Start the HTTP server on an available port
+python3 -m http.server $PORT &
+
+# Get the process ID of the background server
+SERVER_PID=$!
+
+# Trap to kill the server when the script exits (including on CTRL+C)
+trap 'kill $SERVER_PID 2>/dev/null' EXIT
+
+# Get the local IP address
+IP=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
+
+echo "Serving files at http://$IP:$PORT"
+
+# Wait for the server process
+wait $SERVER_PID
