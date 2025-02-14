@@ -1,6 +1,39 @@
 # File Sharing with Python Server (as a shell command)
 Requirements: python3 with http.server
 
+## Quick Installation
+
+### For Linux & MacOS:
+```bash
+curl -o- https://raw.githubusercontent.com/theandreibogdan/file_sharing_shell_command/main/install.sh | bash
+```
+or
+```bash
+wget -qO- https://raw.githubusercontent.com/theandreibogdan/file_sharing_shell_command/main/install.sh | bash
+```
+
+### For Windows (PowerShell):
+```powershell
+irm https://raw.githubusercontent.com/theandreibogdan/file_sharing_shell_command/main/install.ps1 | iex
+```
+
+## Manual Installation
+
+### For Linux & MacOS
+1. Place the script in `/usr/local/bin`
+2. Make it executable with `chmod +x /usr/local/bin/filesharing`
+3. Navigate to the folder you want to share in your local network
+4. Execute in the terminal `filesharing`
+5. Grab the URL that it showed you and open it on another pc
+6. Download the files
+7. When you CTRL + C, it will also kill the process and free the port
+
+### For Windows:
+1. Create folder: `%USERPROFILE%\AppData\Local\FileSharing`
+2. Save the script there
+3. Add to PATH environment variable
+4. Run `filesharing` from any folder
+
 ## For Linux & MacOS
 This is a file sharing shell command that uses python http.server.
 
